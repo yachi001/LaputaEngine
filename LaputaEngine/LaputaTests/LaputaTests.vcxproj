@@ -57,7 +57,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(SolutionDir)\..\lib\gtest\gtestd.lib;$(SolutionDir)\..\lib\gtest\gtest_maind.lib;$(OutputPath)\Laputa3D.lib;$(OutputPath)\LaputaRenderer.lib;$(OutputPath)\LaputaD3D_Static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)\..\lib\gtest\gtestd.lib;$(SolutionDir)\..\lib\gtest\gtest_maind.lib;$(OutputPath)\Laputa3D.lib;$(OutputPath)\LaputaRenderer.lib;$(OutputPath)\LaputaD3D_Static.lib;$(SolutionDir)\..\lib\log4cplus-1.1.1\bin_debug\log4cplusUD.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>
