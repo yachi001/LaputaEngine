@@ -3,12 +3,15 @@
  */
 
 #include <math.h>
+#include <typeinfo>
 #include "LptaVector.h"
 #include "Lpta3D.h"
 #include "LptaQuat.h"
 #include "errors/InvalidRotationAxis.h"
 #include "errors/MatrixInversionError.h"
 #include "LptaMatrix.h"
+#include "Logger.h"
+
 
 #define SKIP_ZEROING true
 
@@ -114,6 +117,7 @@ LptaMatrix LptaMatrix::MakeRotateZAxisMatrix(float rad)
 LptaMatrix LptaMatrix::MakeRotationMatrixFor(const LptaVector &v, float rad)
 {
     if (!v.IsNormal()) {
+        //LOG.Error("Invalid Roation Axis");
         throw InvalidRotationAxis(v);
     }
 
