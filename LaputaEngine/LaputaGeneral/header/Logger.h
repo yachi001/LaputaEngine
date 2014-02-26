@@ -24,7 +24,7 @@ private:
     Logger(const std::string& className);
     ~Logger();
 
-    std::wstring ConvertStringToWString(const std::string& message);
+    std::wstring GetMsg(const std::string& message);
     void AddTimestamp();
 
 
