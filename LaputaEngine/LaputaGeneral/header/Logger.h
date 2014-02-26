@@ -18,12 +18,15 @@ public:
     void Error(const std::string& message);
     void Fatal(const std::string& message);
 
-
 private:
     std::string className;
 
     Logger(const std::string& className);
     ~Logger();
+
+    std::wstring ConvertStringToWString(const std::string& message);
+    void AddTimestamp();
+
 
     Logger(Logger const&);
     void operator=(Logger const&);
