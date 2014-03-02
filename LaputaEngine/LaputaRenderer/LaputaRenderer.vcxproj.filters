@@ -13,84 +13,126 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Errors">
+      <UniqueIdentifier>{3dbd62b9-010a-4b92-aa42-c130fdab2dc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Vertices">
+      <UniqueIdentifier>{7409effd-142e-454b-b053-c08f5f037ba2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Vertices">
+      <UniqueIdentifier>{aae7e26c-8ada-43ee-9833-fd1e61db02ef}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\LptaRenderer.cpp">
+    <ClCompile Include="src\LptaColor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\LptaColor.cpp">
+    <ClCompile Include="src\LptaMaterial.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\LptaMaterial.cpp">
+    <ClCompile Include="src\LptaMaterialManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\LptaSkin.cpp">
+    <ClCompile Include="src\LptaRenderDeviceImpl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\LptaResource.cpp">
+    <ClCompile Include="src\LptaRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\LptaSkinManager.cpp">
+    <ClCompile Include="src\LptaResource.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\LptaMaterialManager.cpp">
+    <ClCompile Include="src\LptaSkin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\LptaRenderDeviceImpl.cpp">
+    <ClCompile Include="src\LptaSkinManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\LptaTextureManager.cpp">
+    <ClCompile Include="src\LptaTexture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\LptaTexture.cpp">
+    <ClCompile Include="src\LptaTextureManager.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LptaViewport.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vertices\LptaVertexCollection.cpp">
+      <Filter>Source Files\Vertices</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vertices\LptaUUVertexCollection.cpp">
+      <Filter>Source Files\Vertices</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vertices\LptaULVertexCollection.cpp">
+      <Filter>Source Files\Vertices</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="header\LptaRenderer.h">
+    <ClInclude Include="include\LptaColor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\LptaRenderDevice.h">
+    <ClInclude Include="include\LptaDeviceBuilder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\LptaRenderDeviceImpl.h">
+    <ClInclude Include="include\LptaMaterial.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\LptaRendererStatusCodes.h">
+    <ClInclude Include="include\LptaMaterialManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\LptaSkin.h">
+    <ClInclude Include="include\LptaRenderDevice.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\LptaMaterial.h">
+    <ClInclude Include="include\LptaRenderDeviceImpl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\LptaColor.h">
+    <ClInclude Include="include\LptaRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\LptaTexture.h">
+    <ClInclude Include="include\LptaRendererStatusCodes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\LptaResourceManager.h">
+    <ClInclude Include="include\LptaResource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\LptaSkinManager.h">
+    <ClInclude Include="include\LptaResourceManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\LptaMaterialManager.h">
+    <ClInclude Include="include\LptaSkin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\LptaTextureManager.h">
+    <ClInclude Include="include\LptaSkinManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\LptaResource.h">
+    <ClInclude Include="include\LptaTexture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\LptaDeviceBuilder.h">
+    <ClInclude Include="include\LptaTextureManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\errors\ImproperResourceManager.h">
+    <ClInclude Include="include\LptaViewport.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\renderer\RenderStates.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\LptaVertexCacheManager.h">
+      <Filter>Header Files\Vertices</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vertices\LptaVertexCollection.h">
+      <Filter>Header Files\Vertices</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vertices\LptaVertexCollectionVisitor.h">
+      <Filter>Header Files\Vertices</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vertices\LptaUUVertexCollection.h">
+      <Filter>Header Files\Vertices</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vertices\LptaULVertexCollection.h">
+      <Filter>Header Files\Vertices</Filter>
+    </ClInclude>
+    <ClInclude Include="include\errors\ImproperResourceManager.h">
+      <Filter>Header Files\Errors</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

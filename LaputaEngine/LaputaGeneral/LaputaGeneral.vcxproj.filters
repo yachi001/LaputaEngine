@@ -15,15 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="header\LptaStatusCodes.h">
+    <ClInclude Include="include\LptaStatusCodes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Logger.h">
+    <ClInclude Include="include\LptaFileHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\Logger.cpp">
+    <ClCompile Include="src\LptaFileHelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
