@@ -66,9 +66,6 @@
     <ClCompile Include="src\LptaD3DUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\LptaD3DVertexCache.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\resources\errors\TextureFileNotFound.cpp">
       <Filter>Source Files\Resources\Errors</Filter>
     </ClCompile>
@@ -99,9 +96,6 @@
     <ClCompile Include="src\resources\LptaD3DPixelShader.cpp">
       <Filter>Source Files\Resources</Filter>
     </ClCompile>
-    <ClCompile Include="src\vertices\LptaD3DVertexBuffer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\vertices\LptaD3DVertexCopier.cpp">
       <Filter>Source Files\Vertices</Filter>
     </ClCompile>
@@ -109,6 +103,24 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\vertices\errors\D3DCopierInvalidTargetBuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vertices\LptaD3DDynamicBuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vertices\errors\D3DBufferAllocationFailure.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vertices\LptaD3DStaticBuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LptaD3DVertexCache.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vertices\LptaD3DStaticBufferResource.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vertices\LptaD3DStaticBufferManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -167,12 +179,6 @@
     <ClInclude Include="include\resources\LptaD3DShaderManager.h">
       <Filter>Header Files\Resources</Filter>
     </ClInclude>
-    <ClInclude Include="include\vertices\LptaD3DVertexCache.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\vertices\LptaD3DVertexBuffer.h">
-      <Filter>Header Files\Vertices</Filter>
-    </ClInclude>
     <ClInclude Include="include\vertices\LptaD3DVertex.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -183,6 +189,24 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\vertices\errors\D3DCopierInvalidTargetBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vertices\LptaD3DDynamicBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vertices\errors\D3DBufferAllocationFailure.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vertices\LptaD3DStaticBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\LptaD3DVertexCache.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vertices\LptaD3DStaticBufferManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vertices\LptaD3DStaticBufferResource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

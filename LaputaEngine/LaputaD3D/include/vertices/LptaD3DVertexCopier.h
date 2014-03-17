@@ -2,13 +2,13 @@
 #define _LPTAD3DVERTEXCOPIER_H_
 
 #include <vector>
-#include "vertices/LptaVertexCollectionVisitor.h"
-#include "LptaD3DVertexBuffer.h"
+#include "vertices/LptaVerticesVisitor.h"
+#include "vertices/LptaVertices.h"
 
 namespace lpta_d3d
 {
 
-class LptaD3DVertexCopier : protected lpta::LptaVertexCollectionVisitor
+class LptaD3DVertexCopier : protected lpta::LptaVerticesVisitor
 {
 public:
     typedef enum COPY_RESULT_TYPE
@@ -18,23 +18,26 @@ public:
     } COPY_RESULT;
     
 public:
-    LptaD3DVertexCopier(lpta::LptaVertexCollection *collection);
+    LptaD3DVertexCopier(lpta::LptaVertices *collection);
     virtual ~LptaD3DVertexCopier(void);
 
-    unsigned int GetStride(void) const;
-    unsigned int GetNumVertices(void) const;
+    lpta::VERTEX_TYPE GetVertexType(void) const;
+    unsigned int Stride(void) const;
+    unsigned int NumVertices(void) const;
     unsigned int ByteSize(void) const;
 
     COPY_RESULT CopyToBuffer(void *buffer, unsigned int bufferSize);
 
 protected:
-    virtual void Visit(lpta::LptaVertexCollection *collection);
-    virtual void Visit(lpta::LptaUUVertexCollection *collection);
-    virtual void Visit(lpta::LptaULVertexCollection *collection);
+    virtual void Visit(lpta::LptaVertices *collection);
+    virtual void Visit(lpta::LptaUUVertices *collection);
+    virtual void Visit(lpta::LptaULVertices *collection);
+
+    template <class T>
+    bool HasValidCopyBuffer(void) const;
 
 private:
-    lpta::LptaVertexCollection *collection;
-    unsigned int stride;
+    lpta::LptaVertices *collection;
 
     void *copyBuffer;
     unsigned int copyBufferSize;

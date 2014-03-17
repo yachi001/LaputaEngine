@@ -5,6 +5,7 @@
 #include <Windows.h>
 #include "LptaResource.h"
 #include "renderer/RenderStates.h"
+#include "vertices/LptaVertices.h"
 using std::vector;
 
 namespace lpta_3d
@@ -21,6 +22,11 @@ class LptaMatrix;
 
 namespace lpta
 {
+
+class LptaVertexCache;
+class LptaSkinManager;
+class LptaTextureManager;
+class LptaMaterialManager;
 
 class LptaViewport;
 class LptaColor;
@@ -61,10 +67,18 @@ public:
     virtual bool IsRunning(void) = 0;
 
     ///////////////////////////////////////////////////////////////////////////
+    // Manager Accessors
+    ///////////////////////////////////////////////////////
+    virtual LptaVertexCache *GetVertexCache(void) const = 0;
+    virtual LptaSkinManager *GetSkinManager(void) const = 0;
+    virtual LptaMaterialManager *GetMaterialManager(void) const = 0;
+    virtual LptaTextureManager *GetTextureManager(void) const = 0;
+
+    ///////////////////////////////////////////////////////////////////////////
     // Shader Configuring
     /////////////////////////////////////////////////////////////////
     virtual VERTEX_SHADER_ID AddVertexShader(const std::string &program) = 0;
-    virtual HRESULT ActivateVertexShader(VERTEX_SHADER_ID shaderId) = 0;
+    virtual HRESULT ActivateVertexShader(VERTEX_SHADER_ID shaderId, VERTEX_TYPE vertexType) = 0;
 
     virtual PIXEL_SHADER_ID AddPixelShader(const std::string &program) = 0;
     virtual HRESULT ActivatePixelShader(PIXEL_SHADER_ID shaderId) = 0;
@@ -110,6 +124,11 @@ public:
     /////////////////////////////////////////////////////////////////
     virtual lpta_3d::LptaRay Transform2DTo3D(const lpta_3d::POINT &point2D) = 0;
     virtual lpta_3d::POINT Transform3DTo2D(const lpta_3d::POINT &point3D) = 0;
+
+    ///////////////////////////////////////////////////////////////////////////
+    // Lighting
+    /////////////////////////////////////////////////////////////////
+    virtual void SetAmbientLight(float r, float g, float b) = 0; 
 };
 
 typedef std::unique_ptr<LptaRenderDevice> LPTA_DEVICE;

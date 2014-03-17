@@ -11,6 +11,7 @@
 #include "resources/LptaD3DPixelShaderManager.h"
 #include "LptaD3DConfig.h"
 #include "LptaRenderDeviceImpl.h"
+#include "LptaD3DVertexCache.h"
 using std::unique_ptr;
 
 namespace lpta_d3d
@@ -35,11 +36,16 @@ public:
     LptaD3D(HINSTANCE hDLL, HWND hWnd, const vector<HWND> &childWnds);
     ~LptaD3D(void);
 
+    lpta::LptaVertexCache *GetVertexCache(void) const { return vertexCache.get(); }
+    lpta::LptaSkinManager *GetSkinManager(void) const { return vertexCache->GetSkinManager(); }
+    lpta::LptaMaterialManager *GetMaterialManager(void) const { return vertexCache->GetMaterialManager(); }
+    lpta::LptaTextureManager *GetTextureManager(void) const { return vertexCache->GetTextureManager(); }
+
     ///////////////////////////////////////////////////////////////////////////
     // Shader Configuring
     /////////////////////////////////////////////////////////////////
     virtual lpta::VERTEX_SHADER_ID AddVertexShader(const std::string &shader);
-    virtual HRESULT ActivateVertexShader(lpta::VERTEX_SHADER_ID shaderId);
+    virtual HRESULT ActivateVertexShader(lpta::VERTEX_SHADER_ID shaderId, lpta::VERTEX_TYPE vertexType);
 
     virtual lpta::PIXEL_SHADER_ID AddPixelShader(const std::string &shader);
     virtual HRESULT ActivatePixelShader(lpta::PIXEL_SHADER_ID shaderId);
@@ -89,6 +95,11 @@ public:
     virtual lpta_3d::LptaRay Transform2DTo3D(const lpta_3d::POINT &point2D);
     virtual lpta_3d::POINT Transform3DTo2D(const lpta_3d::POINT &point3D);
 
+    ///////////////////////////////////////////////////////////////////////////
+    // Lighting
+    /////////////////////////////////////////////////////////////////
+    virtual void SetAmbientLight(float r, float g, float b);
+
 private:
     // SetMode Helper
     HRESULT SetModeWithShader(lpta::RENDER_STAGE stage, lpta::RENDER_MODE mode);
@@ -109,6 +120,8 @@ private:
 
     LPDIRECT3DVERTEXDECLARATION9 declVertex;
     LPDIRECT3DVERTEXDECLARATION9 declLitVertex;
+
+    unique_ptr<LptaD3DVertexCache> vertexCache;
 
     unique_ptr<LptaD3DVertexShaderManager> vertexShaderManager;
     unique_ptr<LptaD3DPixelShaderManager> pixelShaderManager;

@@ -80,7 +80,9 @@ HRESULT LptaD3DDeviceBuilder::Make(HWND hWnd, const vector<HWND> &childWnds, lpt
         &d3dpp,
         &d3dDevice->d3ddev
         );
-    SetWindowPos(hWnd, NULL, -1, -1, d3dDevice->screenWidth, d3dDevice->screenHeight, SWP_NOMOVE);
+    SetWindowPos(hWnd, nullptr, -1, -1, d3dDevice->screenWidth, d3dDevice->screenHeight, SWP_NOMOVE);
+
+    d3dDevice->vertexCache = unique_ptr<LptaD3DVertexCache>(new LptaD3DVertexCache(d3dDevice->d3ddev));
     
     for (unsigned int i = 0; i < d3dDevice->numWindows; i++) {
         D3DPRESENT_PARAMETERS swapChainPP = d3dpp;
@@ -90,14 +92,40 @@ HRESULT LptaD3DDeviceBuilder::Make(HWND hWnd, const vector<HWND> &childWnds, lpt
 
     d3dDevice->isUsingShader = InitShaderSupport(d3dDevice->d3ddev, 
         &d3dDevice->declVertex, &d3dDevice->declLitVertex);
-    d3dDevice->d3ddev->SetFVF(NULL);
+    d3dDevice->d3ddev->SetFVF(0);
     d3dDevice->vertexShaderManager = 
         unique_ptr<LptaD3DVertexShaderManager>(new LptaD3DVertexShaderManager(d3dDevice->d3ddev));
 
     d3dDevice->pixelShaderManager =
         unique_ptr<LptaD3DPixelShaderManager>(new LptaD3DPixelShaderManager(d3dDevice->d3ddev));
 
+    d3dDevice->screenWidth = d3dpp.BackBufferWidth;
+    d3dDevice->screenHeight = d3dpp.BackBufferHeight;
+    d3dDevice->isUsingShader = true;
+    d3dDevice->d3ddev->SetRenderState(D3DRS_LIGHTING, TRUE);
+    d3dDevice->d3ddev->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW);
+    d3dDevice->d3ddev->SetRenderState(D3DRS_ZENABLE, D3DZB_TRUE);
+
+    d3dDevice->d3ddev->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR);
+    d3dDevice->d3ddev->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_LINEAR);
+    d3dDevice->d3ddev->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_LINEAR);
+
+    lpta::LptaViewport viewport(0, 0, d3dDevice->screenWidth, d3dDevice->screenHeight);
+    d3dDevice->mode = lpta::RENDER_MODE::MODE_PERSPECTIVE;
+    d3dDevice->stage = -1;
+    D3DXMatrixIdentity(&d3dDevice->view3D);
+    d3dDevice->SetClippingPlanes(0.1f, 1000.0f);
+    d3dDevice->SetShadeMode(lpta::RENDER_SHADE_MODE::RS_SHADE_SOLID);
+    d3dDevice->SetAmbientLight(1.0f, 1.0f, 1.0f);
     d3dDevice->RunRenderer();
+    // todo PrepareShaderStuff() ???
+    // todo set Ambient
+    if (FAILED(d3dDevice->InitStage(0.8f, viewport, 0))) {
+        return E_FAIL;
+    }
+    if (FAILED(d3dDevice->SetMode3D(0, lpta::RENDER_MODE::MODE_PERSPECTIVE))) {
+        return E_FAIL;
+    }
     *device = std::move(d3dDevice);
 
     return S_OK;
