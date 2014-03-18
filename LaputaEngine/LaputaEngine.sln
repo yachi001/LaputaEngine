@@ -40,6 +40,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Laputa3D", "Laputa3D\Laputa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demos", "Demos", "{7EE070BC-385E-44A7-9D4A-F326859E2278}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LaputaLoggingDemo", "LaputaLoggingDemo\LaputaLoggingDemo.vcxproj", "{73922E24-B07E-4D1B-8BD7-925215FE00F2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{847EF8FD-F3FB-488C-B8F9-4B3E60279D8F} = {847EF8FD-F3FB-488C-B8F9-4B3E60279D8F}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LaputaLogging", "LaputaLogging\LaputaLogging.vcxproj", "{847EF8FD-F3FB-488C-B8F9-4B3E60279D8F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -74,6 +81,14 @@ Global
 		{F9C9E922-8AAD-41E2-A1DA-31C72149A649}.Debug|Win32.Build.0 = Debug|Win32
 		{F9C9E922-8AAD-41E2-A1DA-31C72149A649}.Release|Win32.ActiveCfg = Release|Win32
 		{F9C9E922-8AAD-41E2-A1DA-31C72149A649}.Release|Win32.Build.0 = Release|Win32
+		{73922E24-B07E-4D1B-8BD7-925215FE00F2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{73922E24-B07E-4D1B-8BD7-925215FE00F2}.Debug|Win32.Build.0 = Debug|Win32
+		{73922E24-B07E-4D1B-8BD7-925215FE00F2}.Release|Win32.ActiveCfg = Release|Win32
+		{73922E24-B07E-4D1B-8BD7-925215FE00F2}.Release|Win32.Build.0 = Release|Win32
+		{847EF8FD-F3FB-488C-B8F9-4B3E60279D8F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{847EF8FD-F3FB-488C-B8F9-4B3E60279D8F}.Debug|Win32.Build.0 = Debug|Win32
+		{847EF8FD-F3FB-488C-B8F9-4B3E60279D8F}.Release|Win32.ActiveCfg = Release|Win32
+		{847EF8FD-F3FB-488C-B8F9-4B3E60279D8F}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
