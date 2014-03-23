@@ -40,12 +40,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Laputa3D", "Laputa3D\Laputa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demos", "Demos", "{7EE070BC-385E-44A7-9D4A-F326859E2278}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LaputaLoggingDemo", "LaputaLoggingDemo\LaputaLoggingDemo.vcxproj", "{73922E24-B07E-4D1B-8BD7-925215FE00F2}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LaputaLoggingTestDemo", "LaputaLoggingDemo\LaputaLoggingDemo.vcxproj", "{73922E24-B07E-4D1B-8BD7-925215FE00F2}"
 	ProjectSection(ProjectDependencies) = postProject
 		{847EF8FD-F3FB-488C-B8F9-4B3E60279D8F} = {847EF8FD-F3FB-488C-B8F9-4B3E60279D8F}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LaputaLogging", "LaputaLogging\LaputaLogging.vcxproj", "{847EF8FD-F3FB-488C-B8F9-4B3E60279D8F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LaputaLoggingTest", "LaputaLogging\LaputaLogging.vcxproj", "{847EF8FD-F3FB-488C-B8F9-4B3E60279D8F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,5 +95,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5722E2D8-64C5-4952-AFBF-16AF6EF98976} = {7EE070BC-385E-44A7-9D4A-F326859E2278}
+		{73922E24-B07E-4D1B-8BD7-925215FE00F2} = {7EE070BC-385E-44A7-9D4A-F326859E2278}
 	EndGlobalSection
 EndGlobal
